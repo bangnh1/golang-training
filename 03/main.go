@@ -27,9 +27,9 @@ func main() {
 		{"Thao", 5.6, 1000000},
 	}
 	// sortedAlphabetEmployees := newEmployees.nameSort()
-	// sortedSalaryDescending := newEmployees.salaryDescending()
-	sorted2ndMaxSalary := newEmployees.get2ndMaxSalary()
+	sortedSalaryDescending := newEmployees.salaryDescendingSort()
+	// sorted2ndMaxSalary := newEmployees.get2ndMaxSalary()
 	// fmt.Println(sortedAlphabetEmployees)
-	// fmt.Println(sortedSalaryDescending)
-	fmt.Println(sorted2ndMaxSalary)
+	fmt.Println(sortedSalaryDescending)
+	// fmt.Println(sorted2ndMaxSalary)
 }

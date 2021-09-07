@@ -12,52 +12,31 @@ type employee struct {
 
 type employees []employee
 
-func (e employees) nameSort() []employee {
-	var nameArray []string
-	for _, employee := range e {
-		nameArray = append(nameArray, employee.name)
-	}
-	sort.Strings(nameArray)
-	sortedAlphabetEmployees := employees{}
-	for _, name := range nameArray {
-		for _, employee := range e {
-			if name == employee.name {
-				sortedAlphabetEmployees = append(sortedAlphabetEmployees, employee)
-			}
-		}
-	}
-
-	return sortedAlphabetEmployees
+func (e employee) salary() int {
+	return int(e.salaryRatio*1500000) + e.bonus
 }
 
-func (e employees) salaryDescending() []employee {
-	var sortedSalary []int
-	for _, employee := range e {
-		salary := int(employee.salaryRatio*1500000) + employee.bonus
-		sortedSalary = append(sortedSalary, salary)
-	}
+func (e employees) nameSort() []employee {
 
-	sort.Slice(sortedSalary, func(i, j int) bool {
-		return sortedSalary[i] > sortedSalary[j]
+	sort.SliceStable(e, func(i, j int) bool {
+		return e[i].name < e[j].name
 	})
 
-	sortedSalaryDescending := employees{}
-	for _, s := range sortedSalary {
-		for _, employee := range e {
-			salary := int(employee.salaryRatio*1500000) + employee.bonus
-			if s == salary {
-				sortedSalaryDescending = append(sortedSalaryDescending, employee)
-			}
-		}
-	}
-	return sortedSalaryDescending
+	return e
+}
+
+func (e employees) salaryDescendingSort() []employee {
+	sort.SliceStable(e, func(i, j int) bool {
+		return e[i].salary() > e[j].salary()
+	})
+
+	return e
 }
 
 func (e employees) get2ndMaxSalary() []employee {
 	var sortedSalary []int
 	for _, employee := range e {
-		salary := int(employee.salaryRatio*1500000) + employee.bonus
-		sortedSalary = append(sortedSalary, salary)
+		sortedSalary = append(sortedSalary, employee.salary())
 	}
 	uniqueSalaryList := removeDuplicates(sortedSalary)
 
