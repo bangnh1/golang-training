@@ -1,0 +1,26 @@
+GET http://localhost:3000/users?sort=Id HTTP/1.1
+###
+GET http://localhost:3000/user/1 HTTP/1.1
+###
+POST http://localhost:3000/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "Id": 31,
+    "FullName": "Bin",
+    "Age": 30
+}
+
+###
+PUT http://localhost:3000/user/31 HTTP/1.1
+Content-Type: application/json
+
+{
+    "Id": 31,
+    "FullName": "Apple",
+    "Age": 34,
+    "Sex": "male"
+}
+
+###
+DELETE http://localhost:3000/user/31 HTTP/1.1
