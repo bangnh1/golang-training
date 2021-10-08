@@ -1,0 +1,3 @@
+HSLDIR = "/Users/mrb/github/golang-training/06/HSL"
+UPLOAD_DIR = "/Users/mrb/Downloads/test"
+LOG_INFO_FILE_NAME = "info.log"
