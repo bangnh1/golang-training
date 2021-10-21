@@ -1,0 +1,24 @@
+GET http://localhost:3002/v1/users?sort=age HTTP/1.1
+###
+GET http://localhost:3002/v1/user/O488XSM7 HTTP/1.1
+###
+POST http://localhost:3002/v1/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "full_name": "La",
+    "age": "81"
+}
+
+###
+PUT http://localhost:3002/v1/user/O488XSM7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "full_name": "Bin",
+    "age": "34",
+    "sex": "male"
+}
+
+###
+DELETE http://localhost:3002/v1/user/O488XSM7 HTTP/1.1
